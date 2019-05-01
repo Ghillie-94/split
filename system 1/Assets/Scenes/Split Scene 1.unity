@@ -195,11 +195,6 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 114380587570913858, guid: 7f58f0588c73b354a81ac78f51175d7f,
-        type: 2}
-      propertyPath: onUpdate.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4583765498706302, guid: 7f58f0588c73b354a81ac78f51175d7f, type: 2}
       propertyPath: m_LocalPosition.x
       value: -4.87
@@ -232,25 +227,13 @@ Prefab:
       propertyPath: m_RootOrder
       value: 5
       objectReference: {fileID: 0}
-    - target: {fileID: 114380587570913858, guid: 7f58f0588c73b354a81ac78f51175d7f,
-        type: 2}
-      propertyPath: onUpdate.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
+    - target: {fileID: 1124399038241084, guid: 7f58f0588c73b354a81ac78f51175d7f, type: 2}
+      propertyPath: m_Name
+      value: enemy shell
       objectReference: {fileID: 0}
-    - target: {fileID: 114380587570913858, guid: 7f58f0588c73b354a81ac78f51175d7f,
-        type: 2}
-      propertyPath: onUpdate.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 58057903813500650, guid: 7f58f0588c73b354a81ac78f51175d7f,
-        type: 2}
-      propertyPath: m_IsTrigger
+    - target: {fileID: 1124399038241084, guid: 7f58f0588c73b354a81ac78f51175d7f, type: 2}
+      propertyPath: m_IsActive
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 58057903813500650, guid: 7f58f0588c73b354a81ac78f51175d7f,
-        type: 2}
-      propertyPath: m_Enabled
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7f58f0588c73b354a81ac78f51175d7f, type: 2}
@@ -683,65 +666,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!1 &749563429 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1124399038241084, guid: 7f58f0588c73b354a81ac78f51175d7f,
-    type: 2}
-  m_PrefabInternal: {fileID: 455156258}
---- !u!114 &749563437
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 749563429}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2dac248e99cf44ba5b147b6df9036296, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &749563438
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 749563429}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ba222e28869084664a4ea8fbc7a6c298, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  checkName: 0
-  targetName: 
-  checkTag: 1
-  targetTag: Player
-  checkLayer: 0
-  targetLayer: 
-  onCollisionEnterActions:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 892053335}
-        m_MethodName: ActionDestroyObject
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_TypeName: OnCollision2DActivator+CollisionAction, Assembly-CSharp, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-  onCollisionStayActions:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: OnCollision2DActivator+CollisionAction, Assembly-CSharp, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-  onCollisionExitActions:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: OnCollision2DActivator+CollisionAction, Assembly-CSharp, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
 --- !u!1 &754381783
 GameObject:
   m_ObjectHideFlags: 0
@@ -88561,7 +88485,7 @@ MonoBehaviour:
         m_MethodName: ActionSpawnObject
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 1124399038241084, guid: 7f58f0588c73b354a81ac78f51175d7f,
+          m_ObjectArgument: {fileID: 1124399038241084, guid: 9d72ba176f4900948814de3392b3ac20,
             type: 2}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0

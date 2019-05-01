@@ -31,7 +31,7 @@ GameObject:
   - component: {fileID: 114191339982383252}
   - component: {fileID: 114704589457912818}
   m_Layer: 0
-  m_Name: enemy shell
+  m_Name: enemy shell 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

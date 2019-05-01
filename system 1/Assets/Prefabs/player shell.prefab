@@ -31,7 +31,7 @@ GameObject:
   - component: {fileID: 114191339982383252}
   - component: {fileID: 114704589457912818}
   m_Layer: 0
-  m_Name: enemy shell
+  m_Name: player shell
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -232,15 +232,15 @@ MonoBehaviour:
   checkName: 0
   targetName: 
   checkTag: 1
-  targetTag: Player
+  targetTag: Enemy
   checkLayer: 0
   targetLayer: 
   onCollisionEnterActions:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 114653258863533602}
-        m_MethodName: ActionReloadCurrentScene
-        m_Mode: 1
+      - m_Target: {fileID: 114554707431560246}
+        m_MethodName: ActionDestroyObject
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
