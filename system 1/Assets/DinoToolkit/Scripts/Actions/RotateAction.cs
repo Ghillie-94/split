@@ -21,6 +21,7 @@ using UnityEngine;
 // -----------------------------------------------------------------------------
 #region Component: RotateAction
 // -----------------------------------------------------------------------------
+[AddComponentMenu("Dino Toolkit/Actions/RotateAction")]
 [HelpURL("https://github.com/CodingDino/FifeCollege-Unity-DragNDrop/wiki/RotateAction")]
 public class RotateAction : MonoBehaviour
 {
@@ -38,6 +39,18 @@ public class RotateAction : MonoBehaviour
     public void ActionRotateBy(float degrees)
     {
         transform.rotation = transform.rotation * Quaternion.Euler(0, 0, degrees);
+    }
+    // -------------------------------------------------------------------------
+    public void ActionRotateTowardsObjectWithTag(string tagName)
+    {
+        // Find any object with this tag
+        GameObject objectWithTag = GameObject.FindWithTag(tagName);
+        // If we found an object...
+        if (objectWithTag != null)
+        {
+            // Rotate towards it
+            ActionRotateTowardsObject(objectWithTag);
+        }
     }
     // -------------------------------------------------------------------------
     public void ActionRotateTowardsObject(GameObject rotateTowards)

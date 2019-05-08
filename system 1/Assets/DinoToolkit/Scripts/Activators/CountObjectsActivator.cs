@@ -1,9 +1,9 @@
 ﻿// -----------------------------------------------------------------------------
-#region File Info - ApplyForce2DAction.cs
+#region File Info - CountObjectsActivator.cs
 // -----------------------------------------------------------------------------
 // Project:     Dino Unity Toolkit
 // Created:     Sarah Herzog 2019
-// Purpose:     Applies a force to a Rigidbody2D
+// Purpose:     Perform an action when the right number of objects are found
 // -----------------------------------------------------------------------------
 #endregion
 // -----------------------------------------------------------------------------
@@ -13,25 +13,43 @@
 #region Libraries
 // -----------------------------------------------------------------------------
 using UnityEngine;
+using UnityEngine.Events;
 // -----------------------------------------------------------------------------
 #endregion
 // -----------------------------------------------------------------------------
 
 
 // -----------------------------------------------------------------------------
-#region Component: ApplyForce2DAction
+#region Component: CountObjectsActivator
 // -----------------------------------------------------------------------------
-[RequireComponent(typeof(Rigidbody2D))]
-[AddComponentMenu("Dino Toolkit/Actions/ApplyForce2DAction")]
-[HelpURL("https://github.com/CodingDino/FifeCollege-Unity-DragNDrop/wiki/ApplyForce2DAction")]
-public class ApplyForce2DAction : MonoBehaviour
+[AddComponentMenu("Dino Toolkit/Activators/CountObjectsActivator")]
+[HelpURL("https://github.com/CodingDino/FifeCollege-Unity-DragNDrop/wiki/CountObjectsActivator")]
+public class CountObjectsActivator : MonoBehaviour
 {
-
+    // -------------------------------------------------------------------------
+    #region Editor Variables
+    // -------------------------------------------------------------------------
 
     // -------------------------------------------------------------------------
-    #region Internal Variables
+    [Header("Conditions")]
     // -------------------------------------------------------------------------
-    private Rigidbody2D rigidBody = null;
+
+    [Tooltip("The tag of the target to check against.")]
+    public string targetTag;
+
+    [Tooltip("The number to compare our objects to.")]
+    public int comparison;
+
+    // -------------------------------------------------------------------------
+
+    [Header("Actions")]
+    [Tooltip("Perform these actions when there are less objects than the comparison value.")]
+    public UnityEvent onLessThan;
+    [Tooltip("Perform these actions when there are and equal number objects than the comparison value.")]
+    public UnityEvent onEqualTo;
+    [Tooltip("Perform these actions when there are more objects than the comparison value.")]
+    public UnityEvent onGreaterThan;
+
     // -------------------------------------------------------------------------
     #endregion
     // -------------------------------------------------------------------------
@@ -40,50 +58,25 @@ public class ApplyForce2DAction : MonoBehaviour
     // -------------------------------------------------------------------------
     #region Unity Functions
     // -------------------------------------------------------------------------
-    private void Awake()
+    private void Update()
     {
-        // Get the Rigidbody2D component from our GameObject 
-        // and store it for later use
-        rigidBody = GetComponent<Rigidbody2D>();
+        // Check number of objects with this tag
+        int numObjects = GameObject.FindGameObjectsWithTag(targetTag).Length;
+
+        // Perform actions based on comparison
+
+        if (numObjects < comparison)
+            onLessThan.Invoke();
+
+        if (numObjects == comparison)
+            onEqualTo.Invoke();
+
+        if (numObjects >= comparison)
+            onGreaterThan.Invoke();
     }
     // -------------------------------------------------------------------------
     #endregion
     // -------------------------------------------------------------------------
-
-
-    // -------------------------------------------------------------------------
-    #region Action Functions
-    // -------------------------------------------------------------------------
-    public void ActionApplyForce(Vector2 forceToApply)
-    {
-        // Apply the force to our rigidBody
-        rigidBody.AddForce(forceToApply);
-    }
-    // -------------------------------------------------------------------------
-    public void ActionApplyXForce(float xForceToApply)
-    {
-        // Start with a zero vector
-        Vector2 forceToApply = Vector2.zero;
-        // Set our x force
-        forceToApply.x = xForceToApply;
-        // Apply the force to our rigidBody
-        rigidBody.AddForce(forceToApply);
-    }
-    // -------------------------------------------------------------------------
-    public void ActionApplyYForce(float yForceToApply)
-    {
-        // Start with a zero vector
-        Vector2 forceToApply = Vector2.zero;
-        // Set our y force
-        forceToApply.y = yForceToApply;
-        // Apply the force to our rigidBody
-        rigidBody.AddForce(forceToApply);
-    }
-    // -------------------------------------------------------------------------
-    #endregion
-    // -------------------------------------------------------------------------
-
-
 }
 // -----------------------------------------------------------------------------
 #endregion

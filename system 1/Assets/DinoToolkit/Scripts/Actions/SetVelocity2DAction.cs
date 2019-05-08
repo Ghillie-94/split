@@ -22,6 +22,7 @@ using UnityEngine;
 #region Component: SetVelocity2DAction
 // -----------------------------------------------------------------------------
 [RequireComponent(typeof(Rigidbody2D))]
+[AddComponentMenu("Dino Toolkit/Actions/SetVelocity2DAction")]
 [HelpURL("https://github.com/CodingDino/FifeCollege-Unity-DragNDrop/wiki/SetVelocity2DAction")]
 public class SetVelocity2DAction : MonoBehaviour
 {
@@ -90,7 +91,7 @@ public class SetVelocity2DAction : MonoBehaviour
         newVelocity.y = newYVelocity * speed;
         // Apply the new velocity to our rigidbody
         rigidBody.velocity = newVelocity;
-    }    
+    }
     // -------------------------------------------------------------------------
     public void ActionMoveInFacingDirection(float newSpeed)
     {

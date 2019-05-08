@@ -22,6 +22,7 @@ using UnityEngine;
 #region Component: MoveToAction
 // -----------------------------------------------------------------------------
 [RequireComponent(typeof(Rigidbody2D))]
+[AddComponentMenu("Dino Toolkit/Actions/MoveToAction")]
 [HelpURL("https://github.com/CodingDino/FifeCollege-Unity-DragNDrop/wiki/MoveToAction")]
 public class MoveToAction : MonoBehaviour
 {
@@ -217,9 +218,33 @@ public class MoveToAction : MonoBehaviour
         }
     }
     // -------------------------------------------------------------------------
+    public void ActionMoveToCurrentObjectWithTagPoint(string tagName)
+    {
+        // Find any object with this tag
+        GameObject objectWithTag = GameObject.FindWithTag(tagName);
+        // If we found an object...
+        if (objectWithTag != null)
+        {
+            // Move to it
+            ActionMoveToCurrentObjectPoint(objectWithTag);
+        }
+    }
+    // -------------------------------------------------------------------------
     public void ActionMoveToCurrentObjectPoint(GameObject newTargetObject)
     {
         ActionMoveToPoint(newTargetObject.transform.position);
+    }
+    // -------------------------------------------------------------------------
+    public void ActionFollowObjectWithTag(string tagName)
+    {
+        // Find any object with this tag
+        GameObject objectWithTag = GameObject.FindWithTag(tagName);
+        // If we found an object...
+        if (objectWithTag != null)
+        {
+            // Follow it
+            ActionFollowObject(objectWithTag);
+        }
     }
     // -------------------------------------------------------------------------
     public void ActionFollowObject(GameObject newTargetObject)

@@ -1,9 +1,9 @@
 ﻿// -----------------------------------------------------------------------------
-#region File Info - ParticleSystemAction.cs
+#region File Info - ScaleAction.cs
 // -----------------------------------------------------------------------------
 // Project:     Dino Unity Toolkit
 // Created:     Sarah Herzog 2019
-// Purpose:     Conrtols a particle system component
+// Purpose:     Scales an object
 // -----------------------------------------------------------------------------
 #endregion
 // -----------------------------------------------------------------------------
@@ -19,53 +19,45 @@ using UnityEngine;
 
 
 // -----------------------------------------------------------------------------
-#region Component: ParticleSystemAction
+#region Component: ScaleAction
 // -----------------------------------------------------------------------------
-[RequireComponent(typeof(ParticleSystem))]
-[AddComponentMenu("Dino Toolkit/Actions/ParticleSystemAction")]
-[HelpURL("https://github.com/CodingDino/FifeCollege-Unity-DragNDrop/wiki/ParticleSystemAction")]
-public class ParticleSystemAction : MonoBehaviour
+[AddComponentMenu("Dino Toolkit/Actions/ScaleAction")]
+[HelpURL("https://github.com/CodingDino/FifeCollege-Unity-DragNDrop/wiki/ScaleAction")]
+public class ScaleAction : MonoBehaviour
 {
-
-    // -------------------------------------------------------------------------
-    #region Internal Variables
-    // -------------------------------------------------------------------------
-    private ParticleSystem particleObject = null;
-    // -------------------------------------------------------------------------
-    #endregion
-    // -------------------------------------------------------------------------
-
-
-    // -------------------------------------------------------------------------
-    #region Unity Functions
-    // -------------------------------------------------------------------------
-    private void Awake()
-    {
-        // Store our particle system object for later use
-        particleObject = GetComponent<ParticleSystem>();
-    }
-    // -------------------------------------------------------------------------
-    #endregion
-    // -------------------------------------------------------------------------
-
-
     // -------------------------------------------------------------------------
     #region Action Functions
     // -------------------------------------------------------------------------
-    public void ActionPlayParticleSystem()
+    public void ActionSetScaleX(float scaleX)
     {
-        particleObject.Play();
+        transform.localScale = new Vector3( scaleX,
+                                            transform.localScale.y,
+                                            transform.localScale.z);
     }
     // -------------------------------------------------------------------------
-    public void ActionStopParticleSystem()
+    public void ActionSetScaleY(float scaleY)
     {
-        particleObject.Stop();
+        transform.localScale = new Vector3( transform.localScale.x,
+                                            scaleY,
+                                            transform.localScale.z);
+    }
+    // -------------------------------------------------------------------------
+    public void ActionScaleXBy(float scaleX)
+    {
+        transform.localScale = new Vector3( transform.localScale.z * scaleX,
+                                            transform.localScale.y,
+                                            transform.localScale.z);
+    }
+    // -------------------------------------------------------------------------
+    public void ActionScaleYBy(float scaleY)
+    {
+        transform.localScale = new Vector3( transform.localScale.x,
+                                            transform.localScale.y * scaleY,
+                                            transform.localScale.z);
     }
     // -------------------------------------------------------------------------
     #endregion
     // -------------------------------------------------------------------------
-
-
 }
 // -----------------------------------------------------------------------------
 #endregion
